@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(ReservationsSeeder::class);
+        $this->call(ContactsTableSeeder::class);
       //for admin
         DB::table('users')->insert([
             'name' => "admin",
