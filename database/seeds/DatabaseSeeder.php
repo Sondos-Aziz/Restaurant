@@ -13,6 +13,9 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(ReservationsSeeder::class);
         $this->call(ContactsTableSeeder::class);
+        $this->call(CategorySeeder::class);
+        $this->call(ItemsSeeder::class);
+
       //for admin
         DB::table('users')->insert([
             'name' => "admin",
