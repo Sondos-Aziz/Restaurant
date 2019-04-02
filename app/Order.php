@@ -12,7 +12,7 @@ class Order extends Model
         return $this->belongsTo('App\Customer');
     }
     public function item(){
-        return $this->belongsToMany('App\Item','OrderDetail','order_id','item_id','quantity');
+        return $this->belongsToMany('App\Item','order_details','order_id','item_id','quantity');
 
     }
 }
