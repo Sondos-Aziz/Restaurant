@@ -19,9 +19,10 @@ class DatabaseSeeder extends Seeder
         $this->call(SlidesTableSeeder::class);
         $this->call(OrderTableSeeder::class);
         $this->call(OrderDetailTableSeeder::class);
+        $this->call(CartSeeder::class);
 
 
-      //for admin
+        //for admin
         DB::table('users')->insert([
             'name' => "admin",
             'email' => 'admin123@gmail.com',
