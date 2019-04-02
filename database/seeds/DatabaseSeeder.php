@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call(ItemsSeeder::class);
         $this->call(CustomerSeeder::class);
         $this->call(SlidesTableSeeder::class);
+        $this->call(OrderDetailTableSeeder::class);
+        $this->call(OrderTableSeeder::class);
 
       //for admin
         DB::table('users')->insert([
