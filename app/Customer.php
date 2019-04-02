@@ -10,4 +10,9 @@ class Customer extends Model
     public function order(){
         return $this->hasMany('App\Order');
     }
+
+    public function cart(){
+        return $this->belongsTo('App\Cart');
+    }
+
 }
