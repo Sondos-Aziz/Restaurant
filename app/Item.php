@@ -10,6 +10,6 @@ class Item extends Model
         return $this->belongsTo('App/Category');
     }
     public function order(){
-        return $this->belongsToMany('App\Oreder','OrderDetail','quantity');
+        return $this->belongsToMany('App\Order','OrderDetail','item_id','order_id','quantity');
     }
 }
