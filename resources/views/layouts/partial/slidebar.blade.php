@@ -31,12 +31,14 @@
                     <p>Typography</p>
                 </a>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="./icons.html">
-                    <i class="material-icons">bubble_chart</i>
-                    <p>Icons</p>
+
+            <li class="nav-item {{ Request::is('admin/slider*') ? 'active': '' }}">
+                <a class="nav-link" href="{{ route('slider.index') }}">
+                <i class="material-icons">slideshow</i>
+                <p>Sliders</p>
                 </a>
             </li>
+
             <li class="nav-item ">
                 <a class="nav-link" href="./map.html">
                     <i class="material-icons">location_ons</i>
