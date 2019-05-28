@@ -18,8 +18,8 @@ class CreateOrderDetailsTable extends Migration
             $table->bigInteger('item_id')->nullable($value = false)->unsigned();
             $table->integer('quantity');
             $table->primary(['order_id', 'item_id']);
-            $table->foreign('order_id')->references('id')->on('orders');
-            $table->foreign('item_id')->references('id')->on('items');
+            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
 
             $table->timestamps();
         });

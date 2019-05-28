@@ -24,7 +24,7 @@ class CreateItemsTable extends Migration
             $table->timestamps();
 
             $table->unsignedInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
 
 
         });

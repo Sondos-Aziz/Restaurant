@@ -20,8 +20,8 @@ class CreateCartsTable extends Migration
             $table->bigInteger('item_id')->nullable($value = false)->unsigned();
             $table->integer('quantity');
             $table->primary(['id', 'item_id']);
-            $table->foreign('item_id')->references('id')->on('items');
-            $table->foreign('customer_id')->references('id')->on('customers');
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
             $table->timestamps();
         });
     }
