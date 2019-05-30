@@ -16,7 +16,7 @@ class AdminsTableSeeder extends Seeder
             'name' => 'Admin ',
             'email' => 'admin@gmail.com',
             'password' => 'admin123',
-            'image' => 'im11.png'
+            'image' => 'images/im11.png'
         ]);
 
     }

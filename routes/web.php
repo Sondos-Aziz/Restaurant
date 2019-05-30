@@ -20,6 +20,7 @@ Route::get('/', function () {
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function()
 {
     Route::resource('Category','CategroyController');
+    Route::resource('item','ItemController');
     Route::resource('slider','SliderController');
     Route::resource('userProfile','AdminController');
     Route::resource('dashboard','DashboardController');
