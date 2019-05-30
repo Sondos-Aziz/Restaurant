@@ -13,10 +13,10 @@
                     {{--<a href="{{ route('slider.create') }}" class="btn btn-primary">Add New</a>--}}
                     @include('layouts.partial.msg')
                     <div class="card">
-                        <div class="card-header" data-background-color="purple">
-                            <h4 class="title" data-background-color="purple">Add New Slider</h4>
+                        <div class="card-header card-header-primary">
+                            <h4 class="card=title" data-background-color="purple">Edit Slider</h4>
                         </div>
-                        <div class="card-content">
+                        <div class="card-body">
                             <form method="POST" action="{{ route('slider.update',$slider->id) }}" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
@@ -41,7 +41,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <label class="control-label">Image</label>
-                                        <input type="file" name="image">
+                                        <input type="file" name="image" >
                                     </div>
                                 </div>
                                 <a href="{{ route('slider.index') }}" class="btn btn-danger">Back</a>

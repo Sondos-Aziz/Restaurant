@@ -1383,7 +1383,7 @@ new function () {
 
                         if (imageWidth && imageHeight && _Options.$FillMode) {
 
-                            //0 stretch, 1 contain (keep aspect ratio and put all inside slide), 2 cover (keep aspect ratio and cover whole slide), 4 actual size, 5 contain for large image, actual size for small image, default value is 0
+                            //0 stretch, 1 contain (keep aspect ratio and put all inside slide), 2 cover (keep aspect ratio and cover whole slide), 4 actual size, 5 contain for large images, actual size for small images, default value is 0
                             if (_Options.$FillMode & 3 && (!(_Options.$FillMode & 4) || imageWidth > _SlideWidth || imageHeight > _SlideHeight)) {
                                 var fitHeight = false;
                                 var ratio = _SlideWidth / _SlideHeight * imageHeight / imageWidth;
@@ -1662,7 +1662,7 @@ new function () {
 
                                 $JssorDebug$.$Execute(function () {
                                     if (!_ImageItem) {
-                                        $JssorDebug$.$Error("slide html code definition error, no 'IMG' found in a 'image with link' slide.\r\n" + elmt.outerHTML);
+                                        $JssorDebug$.$Error("slide html code definition error, no 'IMG' found in a 'images with link' slide.\r\n" + elmt.outerHTML);
                                     }
                                 });
                             }
@@ -2620,8 +2620,8 @@ new function () {
         });
 
         var _Options = $JssorUtils$.$Extend({
-            $FillMode: 0,                   //[Optional] The way to fill image in slide, 0 stretch, 1 contain (keep aspect ratio and put all inside slide), 2 cover (keep aspect ratio and cover whole slide), 4 actual size, 5 contain for large image, actual size for small image, default value is 0
-            $LazyLoading: 1,                //[Optional] For image with  lazy loading format (<IMG src2="url" .../>), by default it will be loaded only when the slide comes.
+            $FillMode: 0,                   //[Optional] The way to fill images in slide, 0 stretch, 1 contain (keep aspect ratio and put all inside slide), 2 cover (keep aspect ratio and cover whole slide), 4 actual size, 5 contain for large images, actual size for small images, default value is 0
+            $LazyLoading: 1,                //[Optional] For images with  lazy loading format (<IMG src2="url" .../>), by default it will be loaded only when the slide comes.
             //But an integer value (maybe 1, 2 or 3) indicates that how far of nearby slides should be loaded immediately as well, default value is 1.
             $StartIndex: 0,                 //[Optional] Index of slide to display when initialize, default value is 0
             $AutoPlay: false,               //[Optional] Whether to auto play, default value is false

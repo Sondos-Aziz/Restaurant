@@ -1538,7 +1538,7 @@
       }
     }
 
-    // Custom image
+    // Custom images
     var image = getImage();
     if (params.imageUrl) {
       image.setAttribute('src', params.imageUrl);
@@ -3074,9 +3074,9 @@ if (typeof window !== 'undefined' && window.Sweetalert2) {
   "    .swal2-popup .swal2-actions:not(.swal2-loading) .swal2-styled[disabled] {\n" +
   "      opacity: .4; }\n" +
   "    .swal2-popup .swal2-actions:not(.swal2-loading) .swal2-styled:hover {\n" +
-  "      background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)); }\n" +
+  "      background-images: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)); }\n" +
   "    .swal2-popup .swal2-actions:not(.swal2-loading) .swal2-styled:active {\n" +
-  "      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)); }\n" +
+  "      background-images: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)); }\n" +
   "    .swal2-popup .swal2-actions.swal2-loading .swal2-styled.swal2-confirm {\n" +
   "      width: 2.5em;\n" +
   "      height: 2.5em;\n" +
@@ -3143,7 +3143,7 @@ if (typeof window !== 'undefined' && window.Sweetalert2) {
   "    border-top: 1px solid #eee;\n" +
   "    color: #545454;\n" +
   "    font-size: 1em; }\n" +
-  "  .swal2-popup .swal2-image {\n" +
+  "  .swal2-popup .swal2-images {\n" +
   "    max-width: 100%;\n" +
   "    margin: 1.25em auto; }\n" +
   "  .swal2-popup .swal2-close {\n" +

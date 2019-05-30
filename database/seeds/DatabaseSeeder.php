@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(OrderTableSeeder::class);
         $this->call(OrderDetailTableSeeder::class);
         $this->call(CartSeeder::class);
-
+        $this->call(AdminsTableSeeder::class);
 
         //for admin
         DB::table('users')->insert([

@@ -15,7 +15,7 @@ class SlidesTableSeeder extends Seeder
             'id'=> '10',
             'title' => 'Restaurent WebSite ',
             'sub_title' =>'Welcome in our WebSite',
-            'image' => '/restaurent.jpg'
+            'images' => '/restaurent.jpg'
         ]);
     }
 }

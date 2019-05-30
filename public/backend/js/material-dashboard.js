@@ -59,7 +59,7 @@ $(document).ready(function() {
 
   window_width = $(window).width();
 
-  // check if there is an image set for the sidebar's background
+  // check if there is an images set for the sidebar's background
   md.checkSidebarImage();
 
   //    Activate bootstrap-select
@@ -159,7 +159,7 @@ md = {
     image_src = $sidebar.data('image');
 
     if (image_src !== undefined) {
-      sidebar_container = '<div class="sidebar-background" style="background-image: url(' + image_src + ') "/>';
+      sidebar_container = '<div class="sidebar-background" style="background-images: url(' + image_src + ') "/>';
       $sidebar.append(sidebar_container);
     }
   },
@@ -302,7 +302,7 @@ md = {
     image_src = $page.data('image');
 
     if (image_src !== undefined) {
-      image_container = '<div class="full-page-background" style="background-image: url(' + image_src + ') "/>'
+      image_container = '<div class="full-page-background" style="background-images: url(' + image_src + ') "/>'
       $page.append(image_container);
     }
   },

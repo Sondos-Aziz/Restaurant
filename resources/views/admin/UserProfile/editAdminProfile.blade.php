@@ -29,26 +29,39 @@
 
                 <div class="card">
                     <div class="card-header card-header-primary">
-                        <h4 class="card-title ">Edit Category</h4>
+                        <h4 class="card-title ">Edit Admin Profile</h4>
 
                     </div>
                     <div class="card-body">
-                        <form  method="post" action="{{route('Category.update',$category->id)}}">
+                        <form  method="post" action="{{route('userProfile.update',$admin->id)}}" enctype="multipart/form-data">
                             @csrf
                             @method('put')
                             <div class="col-md-12">
                                 <div class="form-group bmd-label-floating">
                                     <label class="control-label">Name</label>
-                                    <input type="text" class="form-control" name="name" value="{{$category->name}}">
+                                    <input type="text" class="form-control" name="name" value="{{$admin->name}}">
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group bmd-label-floating">
-                                    <label class="control-label">Description</label>
-                                    <input type="text" class="form-control" name="description" value="{{$category->description}}">
+                                    <label class="control-label">Email</label>
+                                    <input type="text" class="form-control" name="email" value="{{$admin->email}}">
                                 </div>
                             </div>
-                            <a href="{{route('Category.index')}}" class="btn btn-danger">Back</a>
+                            <div class="col-md-12">
+                                <div class="form-group bmd-label-floating">
+                                    <label class="control-label">Password</label>
+                                    <input type="text" class="form-control" name="password" value="{{$admin->password}}">
+                                </div>
+                            </div>
+                           <br> <div class="col-md-12">
+
+                                    <label class="control-label">Image</label>
+                                    <input type="file" name="featured_image" accept="image">
+
+                                </div><br>
+
+                            <a href="{{route('userProfile.index')}}" class="btn btn-danger">Back</a>
                             <button type="submit" class="btn btn-primary">Save</button>
 
 

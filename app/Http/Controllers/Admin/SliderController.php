@@ -43,9 +43,9 @@ class SliderController extends Controller
         $this->validate($request,[
             'title' => 'required',
             'sub_title' => 'required',
-            'image' => 'required|mimes:jpeg,jpg,bmp,png',
+            'images' => 'required|mimes:jpeg,jpg,bmp,png',
         ]);
-        $image = $request->file('image');
+        $image = $request->file('images');
         $slug = str_slug($request->title);
 
         if (isset($image))
@@ -104,9 +104,9 @@ class SliderController extends Controller
         $this->validate($request,[
             'title' => 'required',
             'sub_title' => 'required',
-            'image' => 'mimes:jpeg,jpg,bmp,png',
+            'images' => 'mimes:jpeg,jpg,bmp,png',
         ]);
-        $image = $request->file('image');
+        $image = $request->file('images');
         $slug = str_slug($request->title);
         $slider = Slides::find($id);
         if (isset($image))

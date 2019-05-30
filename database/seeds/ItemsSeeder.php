@@ -15,7 +15,7 @@ class ItemsSeeder extends Seeder
             'name' => 'pizza',
             'description' => 'pizza-vegetarian' ,
             'price' => '100' ,
-            'image' => '/37876866-pizza-vegetarian-on-plate.jpg' ,
+            'images' => '/37876866-pizza-vegetarian-on-plate.jpg' ,
             'category_id' => '1'
         ]);
 
@@ -23,7 +23,7 @@ class ItemsSeeder extends Seeder
             'name' => ' fresh-greek',
             'description' => 'salad ' ,
             'price' => '20' ,
-            'image' => '/40944255-fresh-greek-salad-on-a-plate.jpg' ,
+            'images' => '/40944255-fresh-greek-salad-on-a-plate.jpg' ,
             'category_id' => '2'
         ]);
 
@@ -31,7 +31,7 @@ class ItemsSeeder extends Seeder
             'name' => 'traditional-italian ',
             'description' => 'sandwich-with-ham-and-cheese-served-warm' ,
             'price' => '200' ,
-            'image' => '/61044823-traditional-italian-sandwich-with-ham-and-cheese-served-warm-.jpg' ,
+            'images' => '/61044823-traditional-italian-sandwich-with-ham-and-cheese-served-warm-.jpg' ,
             'category_id' => '3'
         ]);
     }

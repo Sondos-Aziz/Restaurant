@@ -230,36 +230,36 @@
 
                     var new_image = $(this).find("img").attr('src');
 
-                    if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+                    if ($sidebar_img_container.length != 0 && $('.switch-sidebar-images input:checked').length != 0) {
                         $sidebar_img_container.fadeOut('fast', function() {
-                            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+                            $sidebar_img_container.css('background-images', 'url("' + new_image + '")');
                             $sidebar_img_container.fadeIn('fast');
                         });
                     }
 
-                    if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+                    if ($full_page_background.length != 0 && $('.switch-sidebar-images input:checked').length != 0) {
                         var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
 
                         $full_page_background.fadeOut('fast', function() {
-                            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+                            $full_page_background.css('background-images', 'url("' + new_image_full_page + '")');
                             $full_page_background.fadeIn('fast');
                         });
                     }
 
-                    if ($('.switch-sidebar-image input:checked').length == 0) {
+                    if ($('.switch-sidebar-images input:checked').length == 0) {
                         var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
                         var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
 
-                        $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-                        $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+                        $sidebar_img_container.css('background-images', 'url("' + new_image + '")');
+                        $full_page_background.css('background-images', 'url("' + new_image_full_page + '")');
                     }
 
                     if ($sidebar_responsive.length != 0) {
-                        $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+                        $sidebar_responsive.css('background-images', 'url("' + new_image + '")');
                     }
                 });
 
-                $('.switch-sidebar-image input').change(function() {
+                $('.switch-sidebar-images input').change(function() {
                     $full_page_background = $('.full-page-background');
 
                     $input = $(this);
@@ -267,23 +267,23 @@
                     if ($input.is(':checked')) {
                         if ($sidebar_img_container.length != 0) {
                             $sidebar_img_container.fadeIn('fast');
-                            $sidebar.attr('data-image', '#');
+                            $sidebar.attr('data-images', '#');
                         }
 
                         if ($full_page_background.length != 0) {
                             $full_page_background.fadeIn('fast');
-                            $full_page.attr('data-image', '#');
+                            $full_page.attr('data-images', '#');
                         }
 
                         background_image = true;
                     } else {
                         if ($sidebar_img_container.length != 0) {
-                            $sidebar.removeAttr('data-image');
+                            $sidebar.removeAttr('data-images');
                             $sidebar_img_container.fadeOut('fast');
                         }
 
                         if ($full_page_background.length != 0) {
-                            $full_page.removeAttr('data-image', '#');
+                            $full_page.removeAttr('data-images', '#');
                             $full_page_background.fadeOut('fast');
                         }
 

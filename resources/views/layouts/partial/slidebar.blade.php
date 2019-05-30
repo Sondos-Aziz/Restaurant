@@ -2,19 +2,22 @@
     <!--
       Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
-      Tip 2: you can also add an image using data-image tag
+      Tip 2: you can also add an images using data-images tag
   -->
 
     <div class="sidebar-wrapper">
-        <ul class="nav">
-            <li class="nav-item active  ">
-                <a class="nav-link" href="">
+        <ul class="nav ">
+            <p style="text-align: center; color: palevioletred; font-weight: bold ; font-size: 20px">MAMA'S KITCHEN</p>
+           <hr>
+
+            <li class="nav-item {{Request::is('admin/dashboard')?'active':''}} ">
+                <a class="nav-link" href="{{route('dashboard.index')}}">
                     <i class="material-icons">dashboard</i>
                     <p>Dashboard</p>
                 </a>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="./user.html">
+            <li class="nav-item {{Request::is('admin/userProfile')?'active':''}}">
+                <a class="nav-link" href="{{route('userProfile.index')}}">
                     <i class="material-icons">person</i>
                     <p>User Profile</p>
                 </a>

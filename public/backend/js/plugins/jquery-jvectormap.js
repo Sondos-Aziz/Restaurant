@@ -789,10 +789,10 @@ jvm.SVGShapeElement.prototype.applyAttr = function(attr, value) {
 
         jvm.SVGShapeElement.images[value] = jvm.SVGShapeElement.imageCounter++;
 
-        that.applyAttr('fill', 'url(#image' + jvm.SVGShapeElement.images[value] + ')');
+        that.applyAttr('fill', 'url(#images' + jvm.SVGShapeElement.images[value] + ')');
       });
     } else {
-      this.applyAttr('fill', 'url(#image' + jvm.SVGShapeElement.images[value] + ')');
+      this.applyAttr('fill', 'url(#images' + jvm.SVGShapeElement.images[value] + ')');
     }
   } else {
     jvm.SVGShapeElement.parentClass.prototype.applyAttr.apply(this, arguments);

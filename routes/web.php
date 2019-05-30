@@ -21,12 +21,14 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function()
 {
     Route::resource('Category','CategroyController');
     Route::resource('slider','SliderController');
+    Route::resource('userProfile','AdminController');
+    Route::resource('dashboard','DashboardController');
 
 });
 
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-});
+//Route::get('dashboard', function () {
+//    return view('admin.dashboard');
+//});
 
 
 
