@@ -12,18 +12,18 @@ class CategorySeeder extends Seeder
     public function run()
     {
         DB::table('Categories')->insert([
-            'name' => 'Pizza ',
-            'description' => 'Type of Pizza'
+            'name' => 'BreakFast ',
+            'description' => 'Type of BreakFast'
         ]);
 
         DB::table('Categories')->insert([
-            'name' => 'Salad ',
-            'description' => 'Type of Salad'
+            'name' => 'Launch ',
+            'description' => 'Type of Launch'
         ]);
 
         DB::table('Categories')->insert([
-            'name' => 'Meet',
-            'description' => 'Type of Meet'
+            'name' => 'Desert',
+            'description' => 'Type of Desert'
         ]);
 
     }

@@ -68,6 +68,7 @@ class ItemController extends Controller
                 $image = $request->file('featured_image');
                 $fileName = time() . '.' . $image->getClientOriginalExtension();
                 $location = public_path('images/' . $fileName);
+
                 Image::make($image)->resize(100, 200)->save($location);
                 $item->images=$fileName;
             }

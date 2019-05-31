@@ -13,9 +13,10 @@
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','HomeController@index')->name('welcome');
+
+
+
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function()
 {
