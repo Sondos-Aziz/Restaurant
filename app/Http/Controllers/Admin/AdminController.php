@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Admin;
 
+use App\Role;
+use App\User;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 use Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -17,13 +21,39 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware(['auth' , 'auth.admin']);
+    }
+
     public function index()
     {
         //show admin's information
-        $admin  = Admin::first();
 
-        return view('admin.UserProfile.indexAdmin',['admin'=>$admin]) ;
-    }
+//        $arrOfAdmin=  array();
+//
+//        $role= Role::where('name','=','admin')->first();
+//
+//        $arry_admins= DB::table('role_user')->where('role_id' ,'=',$role->id)->get();
+//
+//        foreach ($arry_admins as $item){
+//
+//            $admin = User::where('id' ,'=', $item->user_id)->get();
+//            array_push($arrOfAdmin,$admin);
+//
+//
+//        } ;
+        $arrOfAdmin= User::with('roles')->where('name' ,'=', 'admin')->get();
+
+        if($arrOfAdmin != null) {
+
+        return view('admin.UserProfile.indexAdmin', ['admins' => $arrOfAdmin]);
+    }else{
+            return('you don not have data in database');
+//
+        }
+     }
 
 
 
@@ -36,7 +66,7 @@ class AdminController extends Controller
     public function edit($id)
     {
         //
-        $admin = Admin::find($id);
+        $admin = User::find($id);
         return view('admin.UserProfile.editAdminProfile',compact('admin'));
     }
 
@@ -56,7 +86,7 @@ class AdminController extends Controller
             'image' => 'image',         //:jpeg,jpg,bmp,png
         ]);
 
-        $admin = Admin::find($id);
+        $admin = User::find($id);
 
         $admin->name = $request->input('name');
         $admin->email = $request->input('email');

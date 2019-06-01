@@ -6,6 +6,7 @@ use App\Category;
 use App\Item;
 use App\Slides;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,13 +25,30 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+//    public function __construct()
+//    {
+//        $this->middleware(['auth' , 'auth.admin']);
+//    }
+
     public function index()
     {
 
         $categories = Category::all();
-        $items=  Item::all();
-       $sliders= Slides::all();
+        $items = Item::all();
+        $sliders = Slides::all();
 
-        return view('welcome',compact('categories','items','sliders'));
+        return view('welcome', compact('categories', 'items', 'sliders'));
     }
+
+    public function index2()
+    {
+        if (Auth::user()->hasAnyRole('admin')) {
+            return view('home');
+        } else {
+            return view('Userhome');
+
+        }
+    }
+
 }

@@ -15,6 +15,11 @@ class SliderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware(['auth' , 'auth.admin']);
+    }
+
     public function index()
     {
         $sliders = Slides::all();

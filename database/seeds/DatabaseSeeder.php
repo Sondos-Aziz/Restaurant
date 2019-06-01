@@ -20,14 +20,8 @@ class DatabaseSeeder extends Seeder
         $this->call(OrderTableSeeder::class);
         $this->call(OrderDetailTableSeeder::class);
         $this->call(CartSeeder::class);
-        $this->call(AdminsTableSeeder::class);
-
-        //for admin
-        DB::table('users')->insert([
-            'name' => "admin",
-            'email' => 'admin123@gmail.com',
-            'password' => bcrypt('sash4')
-        ]);
+        $this->call(RolesTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
 
 
     }

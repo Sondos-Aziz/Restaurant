@@ -28,17 +28,17 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function()
 
 });
 
-//Route::get('dashboard', function () {
-//    return view('admin.dashboard');
-//});
-
-
-
 
 Auth::routes();
+//Route::get('/login','HomeController@login')->name('login');
+//Route::resource('login','HomeController');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index2');
 
+//Route::get('/home', 'HomeController@indexUser');
 
-
+//for test
+Route::get('/admin',function (){
+   return 'u are admin';
+})->middleware(['auth' , 'auth.admin']);
 

@@ -11,46 +11,53 @@
         {{--<div class="col-md-12">--}}
 
 
+
+
+
+
         <div class="card">
             <div class="card-header card-header-primary">
             <h4 class="card-title ">Admin Profile</h4>
 
               </div>
              <div class="card-body">
+                 @foreach($admins as $item)
 
-            <dt>
-            Name
-            </dt>
-            <dd>
-            {{$admin->name}}
-            </dd>
+                         <dt>
+                             Name
+                         </dt>
+                         <dd>
+                             {{$item->name}}
+                         </dd>
 
-            <dt >
-            Email
-            </dt>
-            <dd>
-            {{$admin->email}}
-            </dd>
+                         <dt >
+                             Email
+                         </dt>
+                         <dd>
+                             {{$item->email}}
+                         </dd>
 
-            <dt>
-            Password
-            </dt>
-            <dd>
-            {{$admin->password}}
-            </dd>
+                         <dt >
+                             Password
+                         </dt>
+                         <dd>
+                             {{$item->password}}
+                         </dd>
 
-            <dt>
-            Image
-            </dt>
-            <dd>
-                <img src =" {{asset('images/' . $admin->image)}}" height="100" width="150"/>
-            </dd>
+                         <dt>
+                             Image
+                         </dt>
+
+                         <dd>
+                             <img src =" {{asset('images/' . $item->image)}}" height="100" width="150"/>
+                         </dd>
+                     @endforeach
 
 
 
 
             <a href="{{route('dashboard.index')}}" class="btn btn-danger">Back</a>
-            <a href="{{route('userProfile.edit',$admin->id)}}" class="btn btn-primary">Edit</a>
+            <a href="{{route('userProfile.edit',$item->id)}}" class="btn btn-primary">Edit</a>
              </div>
         </div>
         </div>

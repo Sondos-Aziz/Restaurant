@@ -82,6 +82,8 @@
                 <li><a href="#featured-dish">featured</a></li>
                 <li><a href="#reserve">reservation</a></li>
                 <li><a href="#contact">contact</a></li>
+                <li> <a href="{{route('login')}}"> <button class="btn btn-success">Login</button> </a></li>
+                <li> <a href="{{route('register')}}"><button class="btn btn-success">Resigter</button></a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.row -->

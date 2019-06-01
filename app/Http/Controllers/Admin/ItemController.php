@@ -19,6 +19,11 @@ class ItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware(['auth' , 'auth.admin']);
+    }
+
     public function index()
     {
         $items=Item::all();
