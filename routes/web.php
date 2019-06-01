@@ -17,7 +17,7 @@ Route::get('/','HomeController@index')->name('welcome');
 
 
 
-
+Route::post('/contact','ContactController@sendMessage')->name('contact.send');
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function()
 {
     Route::resource('Category','CategroyController');
@@ -25,7 +25,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function()
     Route::resource('slider','SliderController');
     Route::resource('userProfile','AdminController');
     Route::resource('dashboard','DashboardController');
-
+    Route::resource('contact','ContactController');
 });
 
 

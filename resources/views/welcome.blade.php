@@ -17,6 +17,11 @@
     <link rel="stylesheet" href="{{asset('frontend/css/pricing.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/main.css')}}">
 
+    <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+
 
     <script src="{{asset('frontend/js/jquery-1.11.2.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('frontend/js/jquery.flexslider.min.js')}}"></script>
@@ -55,6 +60,7 @@
 
 </head>
 <body data-spy="scroll" data-target="#template-navbar">
+
 
 <!--== 4. Navigation ==-->
 <nav id="template-navbar" class="navbar navbar-default custom-navbar-default navbar-fixed-top">
@@ -161,9 +167,9 @@
 
                                     @foreach($categories as $category)
                                         <li class="filter" data-filter=".{{$category->name}}">{{$category->name}}
-                                        <span class="badge">{{$category->items->count()}}</span>
+                                            <span class="badge">{{$category->items->count()}}</span>
                                         </li>
-                                        @endforeach
+                                    @endforeach
 
 
                                 </ul><!-- @end #filter-list -->
@@ -179,27 +185,27 @@
                 <div class="col-md-10 col-md-offset-1">
                     <ul id="menu-pricing" class="menu-price">
 
-                            @foreach($items as $item)
-                                 <li class="item  {{$item->category->name}}">
+                        @foreach($items as $item)
+                            <li class="item  {{$item->category->name}}">
 
-                                     <a href="#">
+                                <a href="#">
 
                                     {{--<img src="{{URL::asset('images'. $item->images)}}" class="img-responsive" alt="Item" style="height:180px ; width: 200px" >--}}
 
 
-                                     <img src="{{url('/images/'. $item->images)}}" class="img-responsive" alt="Item" style="height:180px ; width: 200px" >
+                                    <img src="{{url('/images/'. $item->images)}}" class="img-responsive" alt="Item" style="height:180px ; width: 200px" >
 
-                                         <div class="menu-desc text-center">
+                                    <div class="menu-desc text-center">
                                             <span>
                                                 <h3>{{$item->name}}</h3>
                                                 {{$item->description}}
                                             </span>
                                     </div>
-                                      </a>
-                                      <h2 class="white">{{$item->price}}</h2>
-                                 </li>
+                                </a>
+                                <h2 class="white">{{$item->price}}</h2>
+                            </li>
 
-                            @endforeach
+                        @endforeach
 
 
 
@@ -772,27 +778,22 @@
     </div>
 </section>
 
-<div class="container-fluid">
-    <div class="row">
-        <div id="map-canvas"></div>
-    </div>
-</div>
-
-
-
 <section class="contact-form">
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
                 <div class="row">
-                    <form class="contact-form" method="post" action="contact.php">
-
+                    <form class="contact-form" method="post" action="{{route('contact.send')}}">
+                        @csrf
                         <div class="col-md-6 col-sm-6">
                             <div class="form-group">
                                 <input  name="name" type="text" class="form-control" id="name" required="required" placeholder="  Name">
                             </div>
                             <div class="form-group">
                                 <input name="email" type="email" class="form-control" id="email" required="required" placeholder="  Email">
+                            </div>
+                            <div class="form-group">
+                                <input name="phone" type="text" class="form-control" id="phone" required="required" placeholder="  Phone">
                             </div>
                             <div class="form-group">
                                 <input name="subject" type="text" class="form-control" id="subject" required="required" placeholder="  Subject">
@@ -840,6 +841,17 @@
 <script type="text/javascript" src="{{asset('frontend/js/jQuery.scrollSpeed.js')}}"></script>
 <script src="{{asset('frontend/js/script.js')}}"></script>
 
+@if ($errors->any())
+    @foreach ($errors->all() as $error)
+        <script>
+            toastr.error('{{ $error }}');
+        </script>
+    @endforeach
+@endif
+
+@if(Session::has('success'))
+    toastr.success("{{ Session::get('success') }}");
+@endif
 
 </body>
 </html>

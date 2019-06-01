@@ -16,7 +16,7 @@ class ContactsTableSeeder extends Seeder
             'id'=> '100',
             'name' => 'Amany ',
             'email' =>'Amany@gmail.com',
-            'address' => 'Gaza/alquds Street',
+            'subject' => 'suggestion',
             'phone' => '0599831456',
             'message' => 'I Think if you change the color of website '
         ]);
@@ -25,7 +25,7 @@ class ContactsTableSeeder extends Seeder
             'id'=> '101',
             'name' => 'Lana ',
             'email' =>'Lana@gmail.com',
-            'address' => 'Gaza/AlNasser Street',
+            'subject' => 'problem',
             'phone' => '0597851986',
             'message' => 'How I can login to website'
         ]);

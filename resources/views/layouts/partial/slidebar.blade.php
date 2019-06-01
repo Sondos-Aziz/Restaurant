@@ -42,10 +42,10 @@
                 </a>
             </li>
 
-            <li class="nav-item ">
-                <a class="nav-link" href="./map.html">
-                    <i class="material-icons">location_ons</i>
-                    <p>Maps</p>
+            <li class="nav-item {{ Request::is('admin/contact*') ? 'active': '' }}">
+                <a class="nav-link" href="{{ route('contact.index') }}">
+                    <i class="material-icons">message</i>
+                    <p>Contact</p>
                 </a>
             </li>
             <li class="nav-item ">
