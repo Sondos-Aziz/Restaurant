@@ -86,6 +86,13 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#about">about</a></li>
                 <li><a href="#pricing">pricing</a></li>
+                <li><a href="{{route('product.shoppingCart')}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart
+                        <span class="badge">
+                        {{Session::has('cart') ? Session::get('cart')->totalQty : ''}}
+                    </span>
+
+
+                    </a></li>
                 <li><a href="#great-place-to-enjoy">beer</a></li>
                 <li><a href="#breakfast">bread</a></li>
                 <li><a href="#featured-dish">featured</a></li>
@@ -171,6 +178,7 @@
                                     @foreach($categories as $category)
                                         <li class="filter" data-filter=".{{$category->name}}">{{$category->name}}
                                             <span class="badge">{{$category->items->count()}}</span>
+
                                         </li>
                                     @endforeach
 
@@ -189,9 +197,9 @@
                     <ul id="menu-pricing" class="menu-price">
 
                         @foreach($items as $item)
-                            <li class="item  {{$item->category->name}}">
+                             <li class="item  {{$item->category->name}}">
 
-                                <a href="#">
+                                 <a href="#">
 
                                     {{--<img src="{{URL::asset('images'. $item->images)}}" class="img-responsive" alt="Item" style="height:180px ; width: 200px" >--}}
 
@@ -206,6 +214,7 @@
                                     </div>
                                 </a>
                                 <h2 class="white">{{$item->price}}</h2>
+                                <a href="{{route('product.addToCart',['id'=>$item->id])}}"  role="button" style="color: white ; background: #9ccc65">Add to Cart</a>
                             </li>
 
                         @endforeach

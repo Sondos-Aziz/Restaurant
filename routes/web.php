@@ -16,7 +16,10 @@
 Route::get('/','HomeController@index')->name('welcome');
 Route::post('/reservation','ReservationController@reserve')->name('reservation.reserve');
 
-
+Route::get('/', [
+    'uses'=>'HomeController@index',
+    'as'=>'product.index'
+]);
 
 Route::post('/contact','ContactController@sendMessage')->name('contact.send');
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function()
@@ -47,3 +50,34 @@ Route::get('/admin',function (){
    return 'u are admin';
 })->middleware(['auth' , 'auth.admin']);
 
+Route::get('/add-to-cart/{id}', [
+    'uses'=>'ProductController@getAddToCart',
+    'as'=>'product.addToCart'
+]);
+
+Route::get('/shopping-cart', [
+    'uses'=>'ProductController@getCart',
+    'as'=>'product.shoppingCart'
+]);
+
+Route::get('/remove/{id}', [
+    'uses'=>'ProductController@getRemoveItem',
+    'as'=>'product.remove'
+]);
+
+Route::get('/reduce/{id}', [
+    'uses'=>'ProductController@getReduceByOne',
+    'as'=>'product.reduceByOne'
+]);
+
+Route::get('/checkout', [
+    'uses'=>'ProductController@getCheckout',
+    'as'=>'checkout',
+//    'middleware'=>'Auth'
+]);
+Route::post('/checkout', [
+    'uses'=>'ProductController@postCheckout',
+    'as'=>'checkout',
+//    'middleware'=>'Auth'
+
+]);
