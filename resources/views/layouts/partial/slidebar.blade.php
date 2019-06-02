@@ -22,6 +22,14 @@
                     <p>User Profile</p>
                 </a>
             </li>
+
+            <li class="nav-item {{ Request::is('admin/slider*') ? 'active': '' }}">
+                <a class="nav-link" href="{{ route('slider.index') }}">
+                    <i class="material-icons">slideshow</i>
+                    <p>Sliders</p>
+                </a>
+            </li>
+
             <li class="nav-item {{Request::is('admin/Category')?'active':''}}">
                 <a class="nav-link" href="{{route('Category.index')}}">
                     <i class="material-icons">content_paste</i>
@@ -35,10 +43,11 @@
                 </a>
             </li>
 
-            <li class="nav-item {{ Request::is('admin/slider*') ? 'active': '' }}">
-                <a class="nav-link" href="{{ route('slider.index') }}">
-                <i class="material-icons">slideshow</i>
-                <p>Sliders</p>
+
+            <li class="nav-item {{ Request::is('admin/reservation*') ? 'active': '' }}">
+                <a class="nav-link" href="{{ route('reservation.index') }}">
+                    <i class="material-icons">chrome_reader_mode</i>
+                    <p>Reservations</p>
                 </a>
             </li>
 

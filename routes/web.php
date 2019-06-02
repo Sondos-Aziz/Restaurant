@@ -14,6 +14,7 @@
 
 
 Route::get('/','HomeController@index')->name('welcome');
+Route::post('/reservation','ReservationController@reserve')->name('reservation.reserve');
 
 
 
@@ -25,6 +26,12 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function()
     Route::resource('slider','SliderController');
     Route::resource('userProfile','AdminController');
     Route::resource('dashboard','DashboardController');
+    Route::get('reservation','ReservationController@index')->name('reservation.index');
+    Route::post('reservation/{id}','ReservationController@status')->name('reservation.status');
+    Route::delete('reservation/{id}','ReservationController@destory')->name('reservation.destory');
+
+
+
     Route::resource('contact','ContactController');
 });
 
