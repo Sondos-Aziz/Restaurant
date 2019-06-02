@@ -29,7 +29,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function()
     Route::get('reservation','ReservationController@index')->name('reservation.index');
     Route::post('reservation/{id}','ReservationController@status')->name('reservation.status');
     Route::delete('reservation/{id}','ReservationController@destory')->name('reservation.destory');
-
+//    Route::resource('user','UserController');
 
 
     Route::resource('contact','ContactController');
@@ -37,12 +37,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function()
 
 
 Auth::routes();
-//Route::get('/login','HomeController@login')->name('login');
-//Route::resource('login','HomeController');
+
 
 Route::get('/home', 'HomeController@index2');
 
-//Route::get('/home', 'HomeController@indexUser');
 
 //for test
 Route::get('/admin',function (){

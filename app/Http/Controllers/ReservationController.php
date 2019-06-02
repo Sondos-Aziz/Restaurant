@@ -14,6 +14,7 @@ class ReservationController extends Controller
             'name' => 'required',
             'phone' => 'required',
             'email' => 'required|email',
+            'message' =>'required',
             'dateandtime' => 'required'
         ]);
         $reservation = new Reservation();

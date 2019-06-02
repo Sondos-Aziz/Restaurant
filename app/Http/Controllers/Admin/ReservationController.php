@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Notification;
 
 class ReservationController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth' , 'auth.admin']);
+    }
+
     public function index()
     {
         $reservations = Reservation::all();

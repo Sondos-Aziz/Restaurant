@@ -38,6 +38,7 @@ class ItemController extends Controller
      */
     public function create()
     {
+
         $Categorios = Category::all();
         return view('admin.Item.create' ,compact('Categorios'));
 

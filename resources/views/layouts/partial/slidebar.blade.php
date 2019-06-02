@@ -57,24 +57,32 @@
                     <p>Contact</p>
                 </a>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="./notifications.html">
-                    <i class="material-icons">notifications</i>
-                    <p>Notifications</p>
-                </a>
-            </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="./rtl.html">
-                    <i class="material-icons">language</i>
-                    <p>RTL Support</p>
-                </a>
-            </li>
-            <li class="nav-item active-pro ">
-                <a class="nav-link" href="./upgrade.html">
-                    <i class="material-icons">unarchive</i>
-                    <p>Upgrade to PRO</p>
-                </a>
-            </li>
+
+            {{--<li class="nav-item {{ Request::is('admin/user*') ? 'active': '' }}">--}}
+                {{--<a class="nav-link" href="{{ route('user.index') }}">--}}
+                    {{--<i class="material-icons">chrome_reader_mode</i>--}}
+                    {{--<p>Users</p>--}}
+                {{--</a>--}}
+            {{--</li>--}}
+
+            {{--<li class="nav-item ">--}}
+                {{--<a class="nav-link" href="./notifications.html">--}}
+                    {{--<i class="material-icons">notifications</i>--}}
+                    {{--<p>Notifications</p>--}}
+                {{--</a>--}}
+            {{--</li>--}}
+            {{--<li class="nav-item ">--}}
+                {{--<a class="nav-link" href="./rtl.html">--}}
+                    {{--<i class="material-icons">language</i>--}}
+                    {{--<p>RTL Support</p>--}}
+                {{--</a>--}}
+            {{--</li>--}}
+            {{--<li class="nav-item active-pro ">--}}
+                {{--<a class="nav-link" href="./upgrade.html">--}}
+                    {{--<i class="material-icons">unarchive</i>--}}
+                    {{--<p>Upgrade to PRO</p>--}}
+                {{--</a>--}}
+            {{--</li>--}}
         </ul>
     </div>
 </div>
