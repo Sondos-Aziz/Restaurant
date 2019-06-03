@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Contact;
 use Illuminate\Http\Request;
-use Yoeunes\Toastr\Facades\Toastr;
+use Brian2694\Toastr\Facades\Toastr;
+
 
 
 class ContactController extends Controller
@@ -31,7 +32,7 @@ class ContactController extends Controller
         $contact->save();
 
 
-//        Toastr::success('Your message successfully send.','Success',["positionClass" => "toast-top-right"]);
+       Toastr::success('Your message successfully send.','Success',["positionClass" => "toast-top-right"]);
 
         return redirect()->back();
     }

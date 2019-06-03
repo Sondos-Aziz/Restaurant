@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Category;
+use App\Contact;
+use App\Item;
+use App\Reservation;
+use App\Slides;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -17,9 +22,19 @@ class DashboardController extends Controller
         $this->middleware(['auth' , 'auth.admin']);
     }
 
+
+
     public function index()
     {
-        return view('admin.dashboard');
+
+        $categoryCount = Category::count();
+        $itemCount = Item::count();
+        $sliderCount =Slides::count();
+        $reservation = Reservation::where('status','false')->get();
+        $contactCount = Contact::count();
+
+
+        return view('admin.dashboard',compact('categoryCount','itemCount','sliderCount','reservation','contactCount'));
     }
 
     /**

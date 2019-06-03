@@ -24,6 +24,7 @@ class ReservationController extends Controller
         $reservation->date_and_time = $request->dateandtime;
         $reservation->message = $request->message;
         $reservation->status = false;
+
         $reservation->save();
         Toastr::success('Reservation request sent successfully. we will confirm to you shortly','Success',["positionClass" => "toast-top-right"]);
         return redirect()->back();

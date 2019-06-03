@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Contact;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-//use Yoeunes\Toastr\Facades\Toastr;
+
+use Brian2694\Toastr\Facades\Toastr;
 
 class ContactController extends Controller
 {
@@ -34,7 +35,7 @@ class ContactController extends Controller
 
         $Contact = Contact::find($id);
         $Contact->delete();
-//       Toastr::success('Contact Message successfully deleted','Success',["positionClass" => "toast-top-right"]);
+         Toastr::success('Contact Message successfully deleted','Success',["positionClass" => "toast-top-right"]);
         return redirect()->back();
     }
 
