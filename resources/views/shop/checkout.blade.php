@@ -16,10 +16,7 @@
                 <div class="row">
                     <div class="col-xs-12">
 
-                         <div class="form-group">
-                              <label for="name">Name</label>
-                              <input type="text" id="name" class="form-control"  name="name" required>
-                          </div>
+
                     </div>
                     <div class="col-xs-12">
 
@@ -29,17 +26,17 @@
                         </div>
                     </div>
                     <div class="col-xs-12">
-<hr>
+                        <hr>
                         <div class="form-group">
                             <label for="card-name">Card Holder Name</label>
-                            <input type="text" id="card-name" class="form-control" required>
+                            <input type="text" id="card-name" class="form-control" name="card_name" required>
                         </div>
                     </div>
                     <div class="col-xs-12">
 
                         <div class="form-group">
-                            <label for="card-numbeer">Credit Card Number</label>
-                            <input type="text" id="card-numbeer" class="form-control" required>
+                            <label for="card-number">Credit Card Number</label>
+                            <input type="text" id="card-numbeer" class="form-control" name="card_number" required>
                         </div>
                     </div>
                     <div class="col-xs-12">
@@ -48,14 +45,14 @@
 
                                 <div class="form-group">
                                     <label for="card-expiry-month">Expiration Month</label>
-                                    <input type="text" id="card-expiry-month" class="form-control" required>
+                                    <input type="text" id="card-expiry-month" class="form-control" name="card_expiry_month" required>
                                 </div>
                             </div>
                             <div class="col-xs-6">
 
                                 <div class="form-group">
                                     <label for="card-expiry-year">Expiration Year</label>
-                                    <input type="text" id="card-expiry-year" class="form-control" required>
+                                    <input type="text" id="card-expiry-year" class="form-control" name="card_expiry_year" required>
                                 </div>
                             </div>
                         </div>
@@ -65,17 +62,17 @@
 
                         <div class="form-group">
                             <label for="card-cvc">CVC</label>
-                            <input type="text" id="card-cvc" class="form-control" required>
+                            <input type="text" id="card-cvc" class="form-control" name="card_cvc" required>
                         </div>
                     </div>
                 </div>
 
                 {{csrf_field()}}
-<button type="submit" class="btn btn-success">Buy Now</button>
+                <button type="submit" class="btn btn-success">Buy Now</button>
             </form>
         </div>
     </div>
-    @endsection
+@endsection
 @section('scripts')
     <script type="text/javascript" src="https://js.stripe.com/v3/"></script>
 

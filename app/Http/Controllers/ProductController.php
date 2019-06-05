@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\cart;
+use App\checkout;
 use App\Item;
 use App\Order;
 use App\OrderDetail;
@@ -170,4 +171,55 @@ class ProductController extends Controller
 
         return redirect()->route('product.index')->with('success', 'Successfully purchased products');
     }
+
+
+    public function getcheck()
+    {
+        if(!Session::has('cart')){
+            return view('shop.shopping-cart');
+        }
+        $oldCart=Session::get('cart');
+        $cart=new cart($oldCart);
+        $total=$cart->totalPrice;
+        return view('shop.checkout',['total'=>$total]);
+
+    }
+    public function postcheck(Request $request)
+    {
+
+        if (!Session::has('cart')) {
+            return view('shop.shopping-cart');
+        }
+        $oldCart = Session::get('cart');
+        $cart = new cart($oldCart);
+        $checkout = new checkout();
+
+//        $name = $request->input('name');
+        $address = $request->input('address');
+        $card_name = $request->input('card_name');
+        $card_number = $request->input('card_number');
+        $card_expiry_month = $request->input('card_expiry_month');
+        $card_expiry_year = $request->input('card_expiry_year');
+        $card_cvc = $request->input('card_cvc');
+        $i = 1;
+        foreach ($cart as $item) {
+//            $checkout->name=$name;
+            $checkout->card_name = $card_name;
+            $checkout->address = $address;
+            $checkout->card_number = $card_number;
+            $checkout->card_expiry_month =$card_expiry_month;
+            $checkout->card_expiry_year =$card_expiry_year;
+            $checkout->card_cvc = $card_cvc;
+            $checkout->product_id =  $item[$i]['item']['id'];
+            $checkout->qty = $item[$i]['qty'];
+            $checkout->total = $item[$i]['price'];
+            $checkout->save();
+            $i += 1;
+        }
+
+
+        return redirect()->route('product.index')->with('success', 'Successfully purchased products');
+
+    }
 }
+

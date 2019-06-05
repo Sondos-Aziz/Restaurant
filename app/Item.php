@@ -19,4 +19,9 @@ class Item extends Model
     public  function cart(){
         return $this->belongsTo('App\Cart');
     }
+
+    public function checkout(){
+//        return $this->belongsToMany('App\Order','order_details','item_id','order_id','quantity');
+        return $this->belongsToMany('App\checkout');
+    }
 }

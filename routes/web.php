@@ -69,18 +69,32 @@ Route::get('/reduce/{id}', [
     'uses'=>'ProductController@getReduceByOne',
     'as'=>'product.reduceByOne'
 ]);
+//
+//Route::get('/checkout', [
+//    'uses'=>'ProductController@getCheckout',
+//    'as'=>'checkout',
+////    'middleware'=>'Auth'
+//]);
+//Route::post('/checkout', [
+//    'uses'=>'ProductController@postCheckout',
+//    'as'=>'checkout',
+////    'middleware'=>'Auth'
+//
+//]);
 
 Route::get('/checkout', [
-    'uses'=>'ProductController@getCheckout',
+    'uses'=>'ProductController@getcheck',
     'as'=>'checkout',
 //    'middleware'=>'Auth'
 ]);
 Route::post('/checkout', [
-    'uses'=>'ProductController@postCheckout',
+    'uses'=>'ProductController@postcheck',
     'as'=>'checkout',
 //    'middleware'=>'Auth'
 
 ]);
+
+
 Route::group([ 'middleware'=>'auth'],function () {
 
     Route::get('/order', [
