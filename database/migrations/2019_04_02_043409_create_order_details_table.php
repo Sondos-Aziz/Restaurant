@@ -14,10 +14,13 @@ class CreateOrderDetailsTable extends Migration
     public function up()
     {
         Schema::create('order_details', function (Blueprint $table) {
+            $table->increments('id');
+
             $table->bigInteger('order_id')->nullable($value = false)->unsigned();
             $table->bigInteger('item_id')->nullable($value = false)->unsigned();
-            $table->integer('quantity');
-            $table->primary(['order_id', 'item_id']);
+            $table->integer('qty');
+            $table->float('total');
+//            $table->primary(['order_id', 'item_id']);
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
             $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
 

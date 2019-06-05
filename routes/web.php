@@ -81,3 +81,18 @@ Route::post('/checkout', [
 //    'middleware'=>'Auth'
 
 ]);
+Route::group([ 'middleware'=>'auth'],function () {
+
+    Route::get('/order', [
+        'uses'=>'ProductController@getOrder',
+        'as'=>'order',
+//    'middleware'=>'Auth'
+
+    ]);
+    Route::post('/order', [
+        'uses'=>'ProductController@postOrder',
+        'as'=>'order',
+//    'middleware'=>'Auth'
+
+    ]);
+});
