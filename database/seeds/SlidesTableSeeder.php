@@ -13,9 +13,18 @@ class SlidesTableSeeder extends Seeder
     {
         DB::table('slides')->insert([
             'id'=> '10',
-            'title' => 'Restaurent WebSite ',
-            'sub_title' =>'Welcome in our WebSite',
-            'images' => '/restaurent.jpg'
+            'title' => 'Best Food ',
+            'sub_title' =>'Best Food sub title',
+            'image' => '1561554450.png'
         ]);
+
+        DB::table('slides')->insert([
+            'id'=> '11',
+            'title' => 'Best Salad ',
+            'sub_title' =>'Best Salad sub title',
+            'image' => '1561554147.jpg'
+        ]);
+
+
     }
 }

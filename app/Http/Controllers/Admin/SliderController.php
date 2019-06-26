@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Slides;
 use Carbon\Carbon;
-
+use Illuminate\Support\Facades\Storage;
+use Image;
 
 class SliderController extends Controller
 {
@@ -48,27 +49,39 @@ class SliderController extends Controller
         $this->validate($request,[
             'title' => 'required',
             'sub_title' => 'required',
-            'images' => 'required|mimes:jpeg,jpg,bmp,png',
+            'image' => 'image| mimes:jpeg,jpg,bmp,png',
         ]);
-        $image = $request->file('images');
-        $slug = str_slug($request->title);
+//        $image = $request->file('images');
+//        $slug = str_slug($request->title);
 
-        if (isset($image))
-        {
-            $currentDate = Carbon::now()->toDateString();
-            $imagename = $slug .'-'. $currentDate .'-'. uniqid() .'.'. $image->getClientOriginalExtension();
-            if (!file_exists('uploads/slider'))
-            {
-                mkdir('uploads/slider', 0777 , true);
-            }
-            $image->move('uploads/slider',$imagename);
-        }else {
-            $imagename = 'dafault.png';
-        }
+//        if (isset($image))
+//        {
+//            $currentDate = Carbon::now()->toDateString();
+//            $imagename = $slug .'-'. $currentDate .'-'. uniqid() .'.'. $image->getClientOriginalExtension();
+//            if (!file_exists('uploads/slider'))
+//            {
+//                mkdir('uploads/slider', 0777 , true);
+//            }
+//            $image->move('uploads/slider',$imagename);
+//        }else {= 'dafault.png';
+////        }
+//            $imagename
         $slider = new Slides();
         $slider->title = $request->title;
         $slider->sub_title = $request->sub_title;
-        $slider->image = $imagename;
+
+        if($request->hasFile('featured_image')) {
+            //add the new photo
+            $image = $request->file('featured_image');
+            $fileName = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('images/' . $fileName);
+
+            Image::make($image)->resize(100, 200)->save($location);
+            $slider->image = $fileName;
+
+        }
+
+
         $slider->save();
         return redirect()->route('slider.index')->with('successMsg','Slider Successfully Saved');
     }
@@ -109,26 +122,40 @@ class SliderController extends Controller
         $this->validate($request,[
             'title' => 'required',
             'sub_title' => 'required',
-            'images' => 'mimes:jpeg,jpg,bmp,png',
+            'image' => 'image | mimes:jpeg,jpg,bmp,png',
         ]);
-        $image = $request->file('images');
-        $slug = str_slug($request->title);
+//        $image = $request->file('images');
+//        $slug = str_slug($request->title);
         $slider = Slides::find($id);
-        if (isset($image))
-        {
-            $currentDate = Carbon::now()->toDateString();
-            $imagename = $slug .'-'. $currentDate .'-'. uniqid() .'.'. $image->getClientOriginalExtension();
-            if (!file_exists('uploads/slider'))
-            {
-                mkdir('uploads/slider', 0777 , true);
-            }
-            $image->move('uploads/slider',$imagename);
-        }else {
-            $imagename = $slider->image;
-        }
+//        if (isset($image))
+//        {
+//            $currentDate = Carbon::now()->toDateString();
+//            $imagename = $slug .'-'. $currentDate .'-'. uniqid() .'.'. $image->getClientOriginalExtension();
+//            if (!file_exists('uploads/slider'))
+//            {
+//                mkdir('uploads/slider', 0777 , true);
+//            }
+//            $image->move('uploads/slider',$imagename);
+//        }else {
+//            $imagename = $slider->image;
+//        }
         $slider->title = $request->title;
         $slider->sub_title = $request->sub_title;
-        $slider->image = $imagename;
+
+
+        if($request->hasFile('featured_image')){
+            //add the new photo
+            $image = $request->file('featured_image');
+            $fileName = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('images/' . $fileName);
+            Image::make($image)->save($location);
+            $oldFileName = $slider->image;
+            //updatw the database
+            $slider->image = $fileName;
+            //delete the old photo
+            Storage::delete($oldFileName);
+
+        }
         $slider->save();
         return redirect()->route('slider.index')->with('successMsg','Slider Successfully Updated');
     }
@@ -142,11 +169,13 @@ class SliderController extends Controller
     public function destroy($id)
     {
         $slider = Slides::find($id);
-        if (file_exists('uploads/slider/'.$slider->image)) {
-            unlink('uploads/slider/' . $slider->image);
-        }
+//        if (file_exists('uploads/slider/'.$slider->image)) {
+//            unlink('uploads/slider/' . $slider->image);
+//        }
 
         $slider->delete();
         return redirect()->back()->with('successMsg','Slider Successfully Deleted');
+        $slider->save();
+
     }
 }

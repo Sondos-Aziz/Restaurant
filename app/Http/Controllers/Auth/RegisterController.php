@@ -54,7 +54,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-//            'image' => 'image',
+           'image' => 'image',
             'phone' =>['required','integer', 'min:0'],
             'address' => ['required', 'string'],
         ]);
@@ -68,31 +68,30 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-//        $fileName =null;
-//        if($data->hasFile('featured_image')) {
-//            //add the new photo
-//            $image = $data->file('featured_image');
-//            $fileName = time() . '.' . $image->getClientOriginalExtension();
-//            $location = public_path('images/' . $fileName);
-//
-//            Image::make($image)->resize(100, 200)->save($location);
-//        }
+        $request = request();
+        $fileName =null;
+        if($request->hasFile('featured_image')) {
+            //add the new photo
+            $image = $request->file('featured_image');
+            $fileName = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('images/' . $fileName);
+
+            Image::make($image)->resize(100, 200)->save($location);
+        }
 
         $user = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'phone' => $data['phone'],
-            'address' =>  $data['address'],
-//            'image' =>$fileName,
-        ]);
+        'name' => $data['name'],
+        'email' => $data['email'],
+        'password' => Hash::make($data['password']),
+        'phone' => $data['phone'],
+        'address' =>  $data['address'],
+            'image' =>$fileName,
+    ]);
 
 
 DB::table('role_user')->insert(['role_id'=>2 ,'user_id' => $user['id']]);
 
         return $user ;
-
-
 
     }
 }

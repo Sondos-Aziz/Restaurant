@@ -120,12 +120,7 @@ class ItemController extends Controller
             'images'=>'image'
         ]);
 
-
-
         $item = Item::find($id);
-
-
-
             $item->category_id= $request->category;
             $item->name= $request->name;
             $item->description= $request->description;

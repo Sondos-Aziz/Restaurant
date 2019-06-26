@@ -40,7 +40,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <label class="control-label">Image</label>
-                                        <input type="file" name="image">
+                                        <input type="file" name="featured_image" accept="image">
                                     </div>
                                 </div>
                                 <a href="{{ route('slider.index') }}" class="btn btn-danger">Back</a>
