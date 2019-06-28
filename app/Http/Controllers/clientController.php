@@ -15,14 +15,14 @@ class clientController extends Controller
      */
     public function profile()
     {
-//        if (Auth::user()->hasAnyRole('admin')) {
-//            return view('home');
-//        } else {
-//            return view('Userhome');
-//
-//        }
+        if (Auth::user()->hasAnyRole('admin')) {
+            return view('home');
+        } else {
+            return view('Userhome',['user' => Auth::user()]);
+
+        }
         //profile's client
-        return view('Userhome',['user' => Auth::user()]);
+//        return view('Userhome',['user' => Auth::user()]);
     }
 
     public function update_avatar(Request $request)

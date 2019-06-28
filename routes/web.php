@@ -33,7 +33,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function()
     Route::get('reservation','ReservationController@index')->name('reservation.index');
     Route::post('reservation/{id}','ReservationController@status')->name('reservation.status');
     Route::delete('reservation/{id}','ReservationController@destory')->name('reservation.destory');
-//    Route::resource('user','UserController');
+    Route::resource('user','UserController');
 
 
     Route::resource('contact','ContactController');

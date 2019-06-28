@@ -63,12 +63,12 @@
                     <p>Order</p>
                 </a>
             </li>
-            {{--<li class="nav-item {{ Request::is('admin/user*') ? 'active': '' }}">--}}
-                {{--<a class="nav-link" href="{{ route('user.index') }}">--}}
-                    {{--<i class="material-icons">chrome_reader_mode</i>--}}
-                    {{--<p>Users</p>--}}
-                {{--</a>--}}
-            {{--</li>--}}
+            <li class="nav-item {{ Request::is('admin/user*') ? 'active': '' }}">
+                <a class="nav-link" href="{{ route('user.index') }}">
+                    <i class="material-icons">chrome_reader_mode</i>
+                    <p>Users</p>
+                </a>
+            </li>
 
 
         </ul>

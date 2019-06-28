@@ -20,6 +20,8 @@ class UsersTableSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin123@gmail.com',
             'password' => bcrypt('admin'),
+           'phone' =>'15674986',
+           'address' =>'Gaza',
            'image' => '1559226071.jpg'
         ]);
 
@@ -27,6 +29,8 @@ class UsersTableSeeder extends Seeder
             'name' => 'User1',
             'email' => 'user123@gmail.com',
             'password' => bcrypt('user1'),
+            'phone' =>'0565646',
+            'address' =>'Gaza',
             'image' => '1559226071.jpg'
         ]);
 
