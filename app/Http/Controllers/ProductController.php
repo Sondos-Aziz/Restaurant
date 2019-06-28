@@ -35,38 +35,23 @@ class ProductController extends Controller
     }
 
 
+    public function getOrder($id){
+        $order=Order::all()->where('user_id','=',$id);
+        $detail=Detail::all();
+//dd($order);
+
+    return view('order', ['details'=>$detail,'orders'=>$order,'user'=>Auth::user()]);
+}
+
+
     public function getCart()
     {
 
         if (!Session::has('cart')) {
-            return view('shop.shopping-cart');
+            return view('shop.shopping-cart',['user'=>Auth::user()]);
         }
         $oldCart = Session::get('cart');
         $cart = new cart($oldCart);
-
-
-//
-//        $order = new Order();
-//
-//        $order->address = Auth::user()->address;
-//        $order->phone = Auth::user()->phone;
-//        $order->user_id = Auth::user()->id;
-//        $order->status = false;
-//        $order->save();
-//
-//        $orderProducts = [];
-//        foreach ($cart->items as $productId => $item) {
-//            $orderProducts[] = [
-//                'order_id'  => $order->id,
-//                'item_id' => $item ['item']['id'],
-//                'qty' => $item ['qty'],
-//                'total'  => $item['price']
-//
-//            ];
-//        }
-//        Detail::insert($orderProducts);
-//
-//        $order_id= $order->id;
 
         return view('shop.shopping-cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice,'user'=>Auth::user()]);
     }
@@ -74,7 +59,7 @@ class ProductController extends Controller
 
     public function status(){
         if (!Session::has('cart')) {
-            return view('shop.shopping-cart');
+            return view('shop.shopping-cart',['user'=>Auth::user()]);
         }
         $oldCart = Session::get('cart');
         $cart = new cart($oldCart);
@@ -146,7 +131,7 @@ class ProductController extends Controller
     {
 
         if(!Session::has('cart')){
-            return view('shop.shopping-cart');
+            return view('shop.shopping-cart',['user'=>Auth::user()]);
         }
         $oldCart=Session::get('cart');
         $cart=new cart($oldCart);

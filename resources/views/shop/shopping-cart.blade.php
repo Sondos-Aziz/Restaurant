@@ -129,12 +129,7 @@
 
         <div class="row">
             <div class="col-sm-6  col-md-6 col-md-offset-3 col-sm-offset-3">
-{{--                <a  href="{{route('checkout')}}" type="button" class="btn btn-success ">Order By credit card</a>--}}
-{{--                <a  href="{{ route('ProductController.status')}}" type="button" class="btn btn-success ">--}}
-                    {{--                Order--}}
-{{--                <form id="status-form-1" action="{{ route('checkout') }}" style="display: none;" method="POST">--}}
-{{--                    @csrf--}}
-{{--                </form>--}}
+
                 <button type="button" class="btn btn-info btn-sm" ><a href="{{ route('checkout') }}"><i class="material-icons">Order By credit card</i>
                     </a> </button>
 
@@ -153,6 +148,7 @@
 
             </div>
         </div>
+
     @else
         <div class="row">
             <div class="col-sm-6  col-md-6 col-md-offset-3 col-sm-offset-3">

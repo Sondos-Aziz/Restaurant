@@ -70,6 +70,11 @@ Route::get('/reduce/{id}', [
 
 Route::group([ 'middleware'=>'auth'],function () {
 
+    Route::get('/user-order/{id}', [
+        'uses'=>'ProductController@getOrder',
+        'as'=>'user.order'
+    ]);
+
     Route::get('/shopping-cart', [
         'uses'=>'ProductController@getCart',
         'as'=>'product.shoppingCart'
