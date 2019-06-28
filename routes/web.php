@@ -39,11 +39,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function()
     Route::resource('contact','ContactController');
 });
 
+//for client profile
+Route::get('/home', 'clientController@profile');
+Route::post('/home', 'clientController@update_avatar');
+
+//Route::resource('/home', 'clientController');
 
 Auth::routes();
-
-
-Route::get('/home', 'HomeController@index2');
 
 
 //for test

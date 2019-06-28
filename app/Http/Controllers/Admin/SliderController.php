@@ -51,21 +51,7 @@ class SliderController extends Controller
             'sub_title' => 'required',
             'image' => 'image| mimes:jpeg,jpg,bmp,png',
         ]);
-//        $image = $request->file('images');
-//        $slug = str_slug($request->title);
 
-//        if (isset($image))
-//        {
-//            $currentDate = Carbon::now()->toDateString();
-//            $imagename = $slug .'-'. $currentDate .'-'. uniqid() .'.'. $image->getClientOriginalExtension();
-//            if (!file_exists('uploads/slider'))
-//            {
-//                mkdir('uploads/slider', 0777 , true);
-//            }
-//            $image->move('uploads/slider',$imagename);
-//        }else {= 'dafault.png';
-////        }
-//            $imagename
         $slider = new Slides();
         $slider->title = $request->title;
         $slider->sub_title = $request->sub_title;
@@ -124,21 +110,8 @@ class SliderController extends Controller
             'sub_title' => 'required',
             'image' => 'image | mimes:jpeg,jpg,bmp,png',
         ]);
-//        $image = $request->file('images');
-//        $slug = str_slug($request->title);
         $slider = Slides::find($id);
-//        if (isset($image))
-//        {
-//            $currentDate = Carbon::now()->toDateString();
-//            $imagename = $slug .'-'. $currentDate .'-'. uniqid() .'.'. $image->getClientOriginalExtension();
-//            if (!file_exists('uploads/slider'))
-//            {
-//                mkdir('uploads/slider', 0777 , true);
-//            }
-//            $image->move('uploads/slider',$imagename);
-//        }else {
-//            $imagename = $slider->image;
-//        }
+
         $slider->title = $request->title;
         $slider->sub_title = $request->sub_title;
 
@@ -169,9 +142,6 @@ class SliderController extends Controller
     public function destroy($id)
     {
         $slider = Slides::find($id);
-//        if (file_exists('uploads/slider/'.$slider->image)) {
-//            unlink('uploads/slider/' . $slider->image);
-//        }
 
         $slider->delete();
         return redirect()->back()->with('successMsg','Slider Successfully Deleted');

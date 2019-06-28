@@ -41,14 +41,14 @@ class HomeController extends Controller
         return view('welcome', compact('categories', 'items', 'sliders'));
     }
 
-    public function index2()
-    {
-        if (Auth::user()->hasAnyRole('admin')) {
-            return view('home');
-        } else {
-            return view('Userhome');
-
-        }
-    }
+//    public function index2()
+//    {
+//        if (Auth::user()->hasAnyRole('admin')) {
+//            return view('home');
+//        } else {
+//            return view('Userhome');
+//
+//        }
+//    }
 
 }
