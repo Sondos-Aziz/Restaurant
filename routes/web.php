@@ -16,7 +16,7 @@
 Route::get('/','HomeController@index')->name('welcome');
 Route::post('/reservation','ReservationController@reserve')->name('reservation.reserve');
 
-Route::get('/', [
+Route::get('/product', [
     'uses'=>'HomeController@index',
     'as'=>'product.index'
 ]);

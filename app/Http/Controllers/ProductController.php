@@ -30,7 +30,8 @@ class ProductController extends Controller
         $cart->add($product, $product->id);
 
         $request->session()->put('cart', $cart);
-        return redirect()->route('product.index');
+
+        return redirect()->route('product.index',['user'=>Auth::user()]);
     }
 
 
@@ -67,7 +68,7 @@ class ProductController extends Controller
 //
 //        $order_id= $order->id;
 
-        return view('shop.shopping-cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+        return view('shop.shopping-cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice,'user'=>Auth::user()]);
     }
 
 
@@ -106,7 +107,7 @@ class ProductController extends Controller
 //        $order->status = 1;
         Session::forget('cart');
         Toastr::success('Reservation successfully confirmed.','Success',["positionClass" => "toast-top-right"]);
-        return redirect()->route('product.index');
+        return redirect()->route('product.index',['user'=>Auth::user()]);
     }
 
 
@@ -123,7 +124,7 @@ class ProductController extends Controller
             Session::forget('cart');
         }
 
-        return redirect()->route('product.shoppingCart');
+        return redirect()->route('product.shoppingCart',['user'=>Auth::user()]);
     }
 
     public function getReduceByOne($id)
@@ -137,7 +138,7 @@ class ProductController extends Controller
         } else {
             Session::forget('cart');
         }
-        return redirect()->route('product.shoppingCart');
+        return redirect()->route('product.shoppingCart',['user'=>Auth::user()]);
     }
 
 
@@ -150,7 +151,7 @@ class ProductController extends Controller
         $oldCart=Session::get('cart');
         $cart=new cart($oldCart);
         $total=$cart->totalPrice;
-        return view('shop.checkout',['total'=>$total]);
+        return view('shop.checkout',['total'=>$total,'user'=>Auth::user()]);
 
     }
     public function postcheck(Request $request)
@@ -158,7 +159,7 @@ class ProductController extends Controller
 
 
         if (!Session::has('cart')) {
-            return view('shop.shopping-cart');
+            return view('shop.shopping-cart',['user'=>Auth::user()]);
         }
         $oldCart = Session::get('cart');
         $cart = new cart($oldCart);
@@ -197,7 +198,7 @@ class ProductController extends Controller
 
         Session::forget('cart');
         Toastr::success('Reservation successfully confirmed.', 'Success', ["positionClass" => "toast-top-right"]);
-        return redirect()->route('product.index');
+        return redirect()->route('product.index',['user'=>Auth::user()]);
     }
 
 }
