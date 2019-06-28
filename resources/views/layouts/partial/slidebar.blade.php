@@ -57,7 +57,12 @@
                     <p>Contact</p>
                 </a>
             </li>
-
+            </li> <li class="nav-item {{ Request::is('admin/order*') ? 'active': '' }}">
+                <a class="nav-link" href="{{ route('order.index') }}">
+                    <i class="material-icons">library_books</i>
+                    <p>Order</p>
+                </a>
+            </li>
             {{--<li class="nav-item {{ Request::is('admin/user*') ? 'active': '' }}">--}}
                 {{--<a class="nav-link" href="{{ route('user.index') }}">--}}
                     {{--<i class="material-icons">chrome_reader_mode</i>--}}

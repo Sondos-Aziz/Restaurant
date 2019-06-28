@@ -27,6 +27,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function()
     Route::resource('Category','CategroyController');
     Route::resource('item','ItemController');
     Route::resource('slider','SliderController');
+    Route::resource('order','orderController');
     Route::resource('userProfile','AdminController');
     Route::resource('dashboard','DashboardController');
     Route::get('reservation','ReservationController@index')->name('reservation.index');

@@ -130,7 +130,7 @@
         <div class="row">
             <div class="col-sm-6  col-md-6 col-md-offset-3 col-sm-offset-3">
                 <a  href="{{route('checkout')}}" type="button" class="btn btn-success ">Order By credit card</a>
-                <a  href="{{ route('ProductController.status')}}" type="button" class="btn btn-success ">
+{{--                <a  href="{{ route('ProductController.status')}}" type="button" class="btn btn-success ">--}}
                     {{--                Order--}}
                     <form id="status-form" action="{{ route('ProductController.status') }}" style="display: none;" method="POST">
                         @csrf
@@ -140,8 +140,8 @@
                             document.getElementById('status-form').submit();
                             }else {
                             event.preventDefault();
-                            }"><i class="material-icons">done</i></button>
-                </a>
+                            }"><i class="material-icons">Order Now</i></button>
+{{--                </a>--}}
 
 
             </div>
