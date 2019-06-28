@@ -140,5 +140,65 @@ class ProductController extends Controller
         return redirect()->route('product.shoppingCart');
     }
 
+
+    public function getcheck()
+    {
+
+        if(!Session::has('cart')){
+            return view('shop.shopping-cart');
+        }
+        $oldCart=Session::get('cart');
+        $cart=new cart($oldCart);
+        $total=$cart->totalPrice;
+        return view('shop.checkout',['total'=>$total]);
+
+    }
+    public function postcheck(Request $request)
+    {
+
+
+        if (!Session::has('cart')) {
+            return view('shop.shopping-cart');
+        }
+        $oldCart = Session::get('cart');
+        $cart = new cart($oldCart);
+
+
+        $order = new Order();
+
+        $order->address = Auth::user()->address;
+        $order->phone = Auth::user()->phone;
+        $order->user_id = Auth::user()->id;
+        $order->status = false;
+        $order->save();
+
+        $orderProducts = [];
+        foreach ($cart->items as $productId => $item) {
+            $orderProducts[] = [
+                'order_id' => $order->id,
+                'item_id' => $item ['item']['id'],
+                'qty' => $item ['qty'],
+                'total' => $item['price']
+
+            ];
+        }
+        Detail::insert($orderProducts);
+
+        $checkout = new checkout();
+
+        $checkout->order_id = $order->id;
+        $checkout->card_name = $request->input('card_name');
+        $checkout->card_number = $request->input('card_number');
+        $checkout->card_expiry_month = $request->input('card_expiry_month');
+        $checkout->card_expiry_year = $request->input('card_expiry_year');
+        $checkout->card_cvc = $request->input('card_cvc');
+        $checkout->save();
+
+
+        Session::forget('cart');
+        Toastr::success('Reservation successfully confirmed.', 'Success', ["positionClass" => "toast-top-right"]);
+        return redirect()->route('product.index');
+    }
+
 }
 

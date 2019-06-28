@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\checkout;
 use App\Detail;
 use App\Order;
 use Illuminate\Http\Request;
@@ -23,8 +24,9 @@ class orderController extends Controller
     {
         $detail=Detail::all();
         $orders=Order::all();
+        $card=checkout::all();
 //dd($orders->order->id);
-        return view('admin.order.index',['orders'=>$orders,'details'=>$detail]);
+        return view('admin.order.index',['orders'=>$orders,'details'=>$detail,'cards'=>$card]);
     }
 
 
