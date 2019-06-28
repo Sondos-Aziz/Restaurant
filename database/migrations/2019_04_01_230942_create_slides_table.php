@@ -17,7 +17,7 @@ class CreateSlidesTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('sub_title');
-            $table->string('image')->default('default.jpg');
+            $table->string('image')->default('deafault.png');
             $table->timestamps();
         });
     }

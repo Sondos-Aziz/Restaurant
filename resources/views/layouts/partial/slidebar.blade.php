@@ -5,7 +5,7 @@
       Tip 2: you can also add an images using data-images tag
   -->
 
-    <div class="sidebar-wrapper">
+    <div class="sidebar-wrapper" style="overflow: auto  !important">
         <ul class="nav ">
             <p style="text-align: center; color: palevioletred; font-weight: bold ; font-size: 20px">MAMA'S KITCHEN</p>
            <hr>

@@ -22,7 +22,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('admin'),
            'phone' =>'15674986',
            'address' =>'Gaza',
-           'image' => '1559226071.jpg'
+           'image' => '1561736112.jpg'
         ]);
 
         $user = User::create([
@@ -31,7 +31,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('user1'),
             'phone' =>'0565646',
             'address' =>'Gaza',
-            'image' => '1559226071.jpg'
+            'image' => 'deafault.png'
         ]);
 
         $admin->roles()->attach($adminRole);

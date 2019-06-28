@@ -51,7 +51,7 @@
                             <div class="col-md-12">
                                 <div class="form-group bmd-label-floating">
                                     <label class="control-label">Password</label>
-                                    <input type="text" class="form-control" name="password" value="{{$admin->password}}">
+                                    <input type="text" class="form-control" name="password" value="">
                                 </div>
                             </div>
                            <br> <div class="col-md-12">

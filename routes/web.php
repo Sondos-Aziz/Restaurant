@@ -43,15 +43,14 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function()
 Route::get('/home', 'clientController@profile');
 Route::post('/home', 'clientController@update_avatar');
 
-//Route::resource('/home', 'clientController');
-
 Auth::routes();
 
 
 //for test
-Route::get('/admin',function (){
-   return 'u are admin';
-})->middleware(['auth' , 'auth.admin']);
+//Route::get('/admin',function (){
+//   return 'u are admin';
+//})->middleware(['auth' , 'auth.admin']);
+
 Route::get('/add-to-cart/{id}', [
     'uses'=>'ProductController@getAddToCart',
     'as'=>'product.addToCart'

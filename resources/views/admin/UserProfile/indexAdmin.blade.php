@@ -7,14 +7,6 @@
 
         <div class="content">
         <div class="container-fluid">
-        {{--<div class="row">--}}
-        {{--<div class="col-md-12">--}}
-
-
-
-
-
-
         <div class="card">
             <div class="card-header card-header-primary">
             <h4 class="card-title ">Admin Profile</h4>
@@ -36,14 +28,6 @@
                          <dd>
                              {{$item->email}}
                          </dd>
-
-                         <dt >
-                             Password
-                         </dt>
-                         <dd>
-                             {{$item->password}}
-                         </dd>
-
                          <dt>
                              Image
                          </dt>

@@ -29,9 +29,9 @@
 </head>
 <body>
     <div id="app">
-        <div class="wrapper ">
+        <div class="wrapper " >
         @include('layouts.partial.slidebar')
-            <div class="main-panel">
+            <div class="main-panel" style="overflow: auto  !important">
                 <!-- Navbar -->
             @include('layouts.partial.topbar')
                 <!-- End Navbar -->
