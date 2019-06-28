@@ -15,19 +15,22 @@ class CreateCheckoutsTable extends Migration
     {
         Schema::create('checkouts', function (Blueprint $table) {
 //            $table->bigIncrements('id');
-            $table->bigIncrements('id');
+            $table->increments('id');
 //            $table->string('name');
+            $table->unsignedInteger('order_id');
+
             $table->string('card_name');
-            $table->text('address');
+//            $table->text('address');
             $table->string('card_number');
             $table->integer( 'card_expiry_month');
             $table->integer('card_expiry_year');
             $table->integer('card_cvc');
-            $table->integer('qty');
-            $table->float('total');
-            $table->integer('product_id');
+//            $table->integer('qty');
+//            $table->float('total');
+//            $table->integer('product_id');
 
             $table->timestamps();
+            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
         });
     }
 

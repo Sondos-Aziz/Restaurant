@@ -26,6 +26,8 @@ class Cart extends Model
 
         }
     }
+
+
     public function add($items,$id){
         $storedItem=['qty'=>0,'price'=>$items->price,'item'=>$items];
         if($this->items){

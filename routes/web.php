@@ -49,17 +49,10 @@ Route::get('/home', 'HomeController@index2');
 Route::get('/admin',function (){
    return 'u are admin';
 })->middleware(['auth' , 'auth.admin']);
-
 Route::get('/add-to-cart/{id}', [
     'uses'=>'ProductController@getAddToCart',
     'as'=>'product.addToCart'
 ]);
-
-Route::get('/shopping-cart', [
-    'uses'=>'ProductController@getCart',
-    'as'=>'product.shoppingCart'
-]);
-
 Route::get('/remove/{id}', [
     'uses'=>'ProductController@getRemoveItem',
     'as'=>'product.remove'
@@ -69,44 +62,23 @@ Route::get('/reduce/{id}', [
     'uses'=>'ProductController@getReduceByOne',
     'as'=>'product.reduceByOne'
 ]);
-//
-//Route::get('/checkout', [
-//    'uses'=>'ProductController@getCheckout',
-//    'as'=>'checkout',
-////    'middleware'=>'Auth'
-//]);
-//Route::post('/checkout', [
-//    'uses'=>'ProductController@postCheckout',
-//    'as'=>'checkout',
-////    'middleware'=>'Auth'
-//
-//]);
 
-Route::get('/checkout', [
-    'uses'=>'ProductController@getcheck',
-    'as'=>'checkout',
-//    'middleware'=>'Auth'
-]);
-Route::post('/checkout', [
-    'uses'=>'ProductController@postcheck',
-    'as'=>'checkout',
-//    'middleware'=>'Auth'
-
-]);
 
 
 Route::group([ 'middleware'=>'auth'],function () {
 
-    Route::get('/order', [
-        'uses'=>'ProductController@getOrder',
-        'as'=>'order',
-//    'middleware'=>'Auth'
+    Route::get('/shopping-cart', [
+        'uses'=>'ProductController@getCart',
+        'as'=>'product.shoppingCart'
+    ]);
+    Route::get('/checkout', [
+        'uses'=>'ProductController@getcheck',
+        'as'=>'checkout',
+    ]);
+    Route::post('/checkout', [
+        'uses'=>'ProductController@postcheck',
+        'as'=>'checkout',
 
     ]);
-    Route::post('/order', [
-        'uses'=>'ProductController@postOrder',
-        'as'=>'order',
-//    'middleware'=>'Auth'
-
-    ]);
+    Route::post('order/','ProductController@status')->name('ProductController.status');
 });
