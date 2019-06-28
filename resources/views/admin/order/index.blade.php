@@ -56,6 +56,9 @@
                                     <th>
                                         phone
                                     </th>
+                                    <th>
+                                        Payment method
+                                    </th>
                                     <th colspan="3">
                                         Order Detail
 
@@ -87,6 +90,13 @@
                                             <td>{{$order->user->name}}</td>
                                             <td>{{$order->address}}</td>
                                             <td>{{$order->phone}}</td>
+                                            <td>@if($order->status == true)
+
+                                                    <span class="label label-info">Delivery</span>
+                                                @else
+                                                    <span class="label label-danger ">credit card</span>
+                                                @endif
+                                            </td>
                                             {{--                                {{dd($orders)}}--}}
                                             @foreach($details as $key=>$detail )
                                                 @if($order->id==$detail->order->id)
