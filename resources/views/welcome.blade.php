@@ -108,6 +108,12 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item " style="margin-left: 50px; color: black ;text-decoration: none" href="{{ route('home') }}">
+                               {{--onclick="event.preventDefault();--}}
+                                                     {{--document.getElementById('logout-form').submit();" >--}}
+                              profile
+                            </a></br>
+
                             <a class="dropdown-item " style="margin-left: 50px; color: black ;text-decoration: none" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();" >

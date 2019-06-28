@@ -23,7 +23,7 @@ class ItemsSeeder extends Seeder
             'name' => ' fresh-greek',
             'description' => 'salad ' ,
             'price' => '20' ,
-            'images' => '1559304079.jpg' ,
+            'images' => '1559235334.jpg' ,
             'category_id' => '2'
         ]);
 
@@ -31,7 +31,7 @@ class ItemsSeeder extends Seeder
             'name' => 'traditional-italian ',
             'description' => 'sandwich-with-ham-and-cheese-served-warm' ,
             'price' => '200' ,
-            'images' => '1559235334.jpg' ,
+            'images' => 'food9.jpg' ,
             'category_id' => '3'
         ]);
     }

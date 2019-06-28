@@ -70,7 +70,12 @@
                 </a>
             </li>
 
-
+            <li class="nav-item {{ Request::is('/') ? 'active': '' }}">
+                <a class="nav-link" href="{{ url('/') }}">
+                    <i class="material-icons">chrome_reader_mode</i>
+                    <p>home Page</p>
+                </a>
+            </li>
         </ul>
     </div>
 </div>

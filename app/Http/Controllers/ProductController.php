@@ -91,7 +91,7 @@ class ProductController extends Controller
 //        $order = Order::find($id);
 //        $order->status = 1;
         Session::forget('cart');
-        Toastr::success('Reservation successfully confirmed.','Success',["positionClass" => "toast-top-right"]);
+        Toastr::success('product successfully confirmed.','Success',["positionClass" => "toast-top-right"]);
         return redirect()->route('product.index',['user'=>Auth::user()]);
     }
 
@@ -182,7 +182,7 @@ class ProductController extends Controller
 
 
         Session::forget('cart');
-        Toastr::success('Reservation successfully confirmed.', 'Success', ["positionClass" => "toast-top-right"]);
+        Toastr::success('product successfully confirmed.', 'Success', ["positionClass" => "toast-top-right"]);
         return redirect()->route('product.index',['user'=>Auth::user()]);
     }
 

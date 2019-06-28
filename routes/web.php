@@ -40,7 +40,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function()
 });
 
 //for client profile
-Route::get('/home', 'clientController@profile');
+Route::get('/home', 'clientController@profile')->name('home');
 Route::post('/home', 'clientController@update_avatar');
 
 Auth::routes();
